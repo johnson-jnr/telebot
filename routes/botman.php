@@ -17,5 +17,7 @@ $botman->hears('/name', function ($bot) {
     $bot->reply('Johnson Towoju');
 });
 
+$botman->hears('/random', 'App\Http\Controllers\AllBreedsController@random');
+
 
 $botman->hears('Start conversation', BotManController::class.'@startConversation');
