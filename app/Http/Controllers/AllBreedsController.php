@@ -29,4 +29,9 @@ class AllBreedsController extends Controller
         $bot->reply($this->photos->random());
     }
 
+    public function byBreed($bot, $name) {
+    	$bot->reply($this->photos->byBreed($name));
+
+    }
+
 }

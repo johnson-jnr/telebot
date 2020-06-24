@@ -21,3 +21,6 @@ $botman->hears('/random', 'App\Http\Controllers\AllBreedsController@random');
 
 
 $botman->hears('Start conversation', BotManController::class.'@startConversation');
+
+$botman->hears('/b {breed}', 'App\Http\Controllers\AllBreedsController@byBreed');
+
