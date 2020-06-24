@@ -13,4 +13,9 @@ $botman->hears('/start', function ($bot) {
 });
 
 
+$botman->hears('/name', function ($bot) {
+    $bot->reply('Johnson Towoju');
+});
+
+
 $botman->hears('Start conversation', BotManController::class.'@startConversation');
