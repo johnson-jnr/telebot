@@ -23,12 +23,12 @@ class CatBreedsController extends Controller
      *
      * @return void
      */
-    public function random()
+    public function random($bot)
     {
         // $this->photos->random() is basically the photo URL returned from the service.
         // $bot->reply is what we will use to send a message back to the user.
         $response = $this->photos->random();
-        bot->reply($response);
+        $bot->reply($response);
     }
 
     public function byBreed($bot, $name) {
