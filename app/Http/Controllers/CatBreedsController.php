@@ -27,6 +27,11 @@ class CatBreedsController extends Controller
      * @return void
      */
 
+
+    public function start($bot) {
+        $bot->reply("Welcome to Kitty\nYou can control me by sending these commands\n/n/random - get random kitty photo\n/b {breed_name} - get a specific kitty breed photo\n/start conversation - Let\'s have a chat :)");
+    }
+
     public function random($bot)
     {
         // $this->photos->random() is basically the photo URL returned from the service.
@@ -40,52 +45,54 @@ class CatBreedsController extends Controller
         $bot->reply($response);
     }
 
-    public function example() {
-        $client = new \GuzzleHttp\Client();
-        $request = $client->get('https://api.thecatapi.com/v1/images/search');
-        $response = json_decode($request->getBody());
 
-        dd($response);
+    // public function example() {
+    //     $client = new \GuzzleHttp\Client();
+    //     $request = $client->get('https://api.thecatapi.com/v1/images/search');
+    //     $response = json_decode($request->getBody());
 
-    }
+    //     dd($response);
 
-    public function test() {
+    // }
 
-
-        // $response = $this->catService->getRandomBreeds();
-        // dd($response);
-
-        $client = new \GuzzleHttp\Client(['headers' => ['x-api-key' => '2b9740e3-825e-49d3-a2e2-cf938bcb207d']]);
-        $request = $client->request('GET', 'https://api.thecatapi.com/v1/breeds');
-        $response = json_decode($request->getBody());
-
-        // dd($response);
-
-        $responseLength = count($response);
-
-        $days = range(1, $responseLength - 1 );
-        $res = shuffle($days);
-
-        // dd($days);
-        $names = array();
+    // public function test() {
 
 
-        for ($i = 0; $i < 4; $i++) {
-            $names[] = array(
-                'id' => $response[$days[$i]]->id,
-                'name' => $response[$days[$i]]->name);
-        }
+    //     // $response = $this->catService->getRandomBreeds();
+    //     // dd($response);
 
-        dd($names);
+    //     $client = new \GuzzleHttp\Client(['headers' => ['x-api-key' => '2b9740e3-825e-49d3-a2e2-cf938bcb207d']]);
+    //     $request = $client->request('GET', 'https://api.thecatapi.com/v1/breeds');
+    //     $response = json_decode($request->getBody());
 
-        $values = array();
-        foreach ($names as $name) {
-            $values[] = array_values($name);
-        }
+    //     // dd($response);
 
-        dd($values);
+    //     $responseLength = count($response);
 
-        // dd($names[0][0]);
-    }
+    //     $days = range(1, $responseLength - 1 );
+    //     $res = shuffle($days);
+
+    //     // dd($days);
+    //     $names = array();
+
+
+    //     for ($i = 0; $i < 4; $i++) {
+    //         $names[] = array(
+    //             'id' => $response[$days[$i]]->id,
+    //             'name' => $response[$days[$i]]->name);
+    //     }
+
+    //     dd($names);
+
+    //     $values = array();
+    //     foreach ($names as $name) {
+    //         $values[] = array_values($name);
+    //     }
+
+    //     dd($values);
+
+    //     // dd($names[0][0]);
+    // }
+    
 
 }
