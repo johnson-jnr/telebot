@@ -29,7 +29,7 @@ class CatBreedsController extends Controller
 
 
     public function start($bot) {
-        $bot->reply("*Welcome to Kitty*\n\nYou can control me by sending these commands\n\n/random - get random kitty photo\n/b (breed_name) - get a specific kitty breed photo\n\n'Start Conversation' - Let's have a chat 🙂", ['parse_mode' => 'Markdown'] );
+        $bot->reply("<b>Welcome to Kitty</b>\n\nYou can control me by sending these commands\n\n/random - get random kitty photo\n/b (breed_name) - get a specific kitty breed photo\n\n'Start Conversation' - Let's have a chat 🙂", ['parse_mode' => 'HTML'] );
     }
 
     public function random($bot)
