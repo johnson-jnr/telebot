@@ -31,15 +31,13 @@ class CatConversation extends Conversation
         // Log::info('after');
     }
 
-
     public function defaultQuestion() {
         // dd($this->cats);
-        $question = Question::create('Huh - you woke me up. What do you need?')
+        $question = Question::create('Hi there. Kindly Choose an option')
             ->addButtons([
                 Button::create('Choose a Random Kitty Breed')->value('breed'),
                 Button::create('Random Kitty Photo')->value('random'),
                 Button::create('Cancel')->value('cancel')
-
             ]);
 
             // We ask our user the question.

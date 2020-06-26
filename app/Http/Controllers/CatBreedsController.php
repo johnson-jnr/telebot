@@ -29,7 +29,7 @@ class CatBreedsController extends Controller
 
 
     public function start($bot) {
-        $bot->reply("Welcome to Kitty\n\nYou can control me by sending these commands\n\n/random - get random kitty photo\n/b (breed_name) - get a specific kitty breed photo\n\nstart conversation - Let's have a chat 🙂");
+        $bot->reply("<b>Welcome to Kitty<b>\\n\nYou can control me by sending these commands\n\n/random - get random kitty photo\n/b (breed_name) - get a specific kitty breed photo\n\nStart Conversation - Let's have a chat 🙂");
     }
 
     public function random($bot)
@@ -37,7 +37,13 @@ class CatBreedsController extends Controller
         // $this->photos->random() is basically the photo URL returned from the service.
         // $bot->reply is what we will use to send a message back to the user.
         $response = $this->catService->random();
-        $bot->reply($response);
+        if ($response) {
+            $bot->reply($response);
+
+        } else {
+            $bot->reply('Sorry no result for that breed, Try again');
+
+        }
     }
 
     public function byBreedID($bot, $breedID) {

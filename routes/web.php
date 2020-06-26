@@ -22,6 +22,4 @@ Route::get('/botman/tinker', 'BotManController@tinker');
 Route::get('/random', 'CatBreedsController@random');
 Route::get('/example', 'CatBreedsController@example');
 
-// Route::get('/test', function() {
-// 	dd(utf8_chr(+1F600));
-// });
+Route::get('/test', 'CatBreedsController@test');
