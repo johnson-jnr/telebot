@@ -21,3 +21,4 @@ Route::get('/botman/tinker', 'BotManController@tinker');
 
 Route::get('/random', 'CatBreedsController@random');
 Route::get('/example', 'CatBreedsController@example');
+Route::get('/test', 'CatBreedsController@byBreed');

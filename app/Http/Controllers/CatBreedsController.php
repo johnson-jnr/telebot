@@ -13,9 +13,12 @@ class CatBreedsController extends Controller
      * 
      * @return void
      */
+
+    const BREED_ENDPOINT = 'https://api.thecatapi.com/v1/images/search?breed_ids=';
+
     public function __construct()
     {
-        $this->photos = new CatService;
+        $this->catService = new CatService;
     }
 
     /**
@@ -23,17 +26,18 @@ class CatBreedsController extends Controller
      *
      * @return void
      */
+
     public function random($bot)
     {
         // $this->photos->random() is basically the photo URL returned from the service.
         // $bot->reply is what we will use to send a message back to the user.
-        $response = $this->photos->random();
+        $response = $this->catService->random();
         $bot->reply($response);
     }
 
-    public function byBreed($bot, $name) {
-    	$bot->reply($this->photos->byBreed($name));
-
+    public function byBreedID($bot, $breedID) {
+        $response = $this->catService->byBreedID($breedID);
+        $bot->reply($response);
     }
 
     public function example() {
@@ -43,6 +47,45 @@ class CatBreedsController extends Controller
 
         dd($response);
 
+    }
+
+    public function test() {
+
+
+        // $response = $this->catService->getRandomBreeds();
+        // dd($response);
+
+        $client = new \GuzzleHttp\Client(['headers' => ['x-api-key' => '2b9740e3-825e-49d3-a2e2-cf938bcb207d']]);
+        $request = $client->request('GET', 'https://api.thecatapi.com/v1/breeds');
+        $response = json_decode($request->getBody());
+
+        // dd($response);
+
+        $responseLength = count($response);
+
+        $days = range(1, $responseLength - 1 );
+        $res = shuffle($days);
+
+        // dd($days);
+        $names = array();
+
+
+        for ($i = 0; $i < 4; $i++) {
+            $names[] = array(
+                'id' => $response[$days[$i]]->id,
+                'name' => $response[$days[$i]]->name);
+        }
+
+        dd($names);
+
+        $values = array();
+        foreach ($names as $name) {
+            $values[] = array_values($name);
+        }
+
+        dd($values);
+
+        // dd($names[0][0]);
     }
 
 }
