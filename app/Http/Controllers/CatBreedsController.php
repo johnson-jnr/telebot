@@ -5,7 +5,9 @@ namespace App\Http\Controllers;
 use App\Services\CatService;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Log;
-
+use BotMan\BotMan\BotMan;
+use Botman\Drivers\Web\WebDriver;
+use BotMan\Drivers\Telegram\TelegramDriver;
 
 class CatBreedsController extends Controller
 {
@@ -18,6 +20,7 @@ class CatBreedsController extends Controller
     public function __construct()
     {
         $this->catService = new CatService;
+
     }
 
     /**
@@ -34,8 +37,19 @@ class CatBreedsController extends Controller
     {
         // $this->photos->random() is basically the photo URL returned from the service.
         // $bot->reply is what we will use to send a message back to the user.
+
         $response = $this->catService->random();
         $bot->reply($response);
+
+        // $user = $bot->getUser();
+        // Log::info($user->getId());
+
+        
+        // $botman = resolve("botman");
+    }
+
+    public function new() {
+        $this->bot->say('Message', '1593291647358', TelegramDriver::class);
     }
 
 }
