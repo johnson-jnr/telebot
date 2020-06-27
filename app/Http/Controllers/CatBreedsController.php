@@ -38,18 +38,18 @@ class CatBreedsController extends Controller
         // $this->photos->random() is basically the photo URL returned from the service.
         // $bot->reply is what we will use to send a message back to the user.
 
-        // $response = $this->catService->random();
-        // $bot->reply($response);
+        $response = $this->catService->random();
+        $bot->reply($response);
 
-        $user = $bot->getUser();
-        error_log($user->getId());
-        error_log('after');
+        // $user = $bot->getUser();
+        // error_log($user->getId());
+        // error_log('after');
         
         // $botman = resolve("botman");
     }
 
     public function new() {
-        $this->bot->say('Message', '1593291647358', TelegramDriver::class);
+        $this->bot->say('Message', '1170467087', TelegramDriver::class);
     }
 
 }
