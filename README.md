@@ -2,8 +2,8 @@
 
 ## About KittyBot
 
-[Kitty Chatbot](http://t.me/laraplaybot) displays random cats photos to you. Get to know cat breeds and see cute
-cats displayed anytime non stop. 
+[Kitty Chatbot](http://t.me/laraplaybot) is a telegram bot that displays random cats photos to you. Get to know cat breeds and see cute
+kittens displayed anytime non-stop. 
 
 ## Contributing
 
