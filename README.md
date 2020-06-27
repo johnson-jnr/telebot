@@ -1,4 +1,4 @@
-<p align="center"><img height="188" width="198" src="https://i.ibb.co/3WfS8Mk/photo-2020-06-27-02-59-00.jpg"></p>
+<p align="center"><img height="188" width="198" src="https://i.ibb.co/k83J8SY/photo-2020-06-27-02-59-16.jpg"></p>
 
 ## About KittyBot
 
