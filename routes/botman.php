@@ -21,8 +21,6 @@ $botman->hears('/random', 'App\Http\Controllers\CatBreedsController@random');
 
 $botman->hears('start conversation', 'App\Http\Controllers\ConversationController@index');
 
-$botman->hears('/b {breed}', 'App\Http\Controllers\CatBreedsController@byBreedID');
-
 $botman->fallback('App\Http\Controllers\FallbackController@index');
 
 

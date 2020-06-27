@@ -14,7 +14,7 @@ class CatService
     // The endpoint we will be getting a random image from.
     const RANDOM_ENDPOINT = 'https://api.thecatapi.com/v1/images/search';
     const RANDOM_NAMES = 'https://api.thecatapi.com/v1/breeds';
-    const BREED_ENDPOINT = 'https://api.thecatapi.com/v1/images/search?breed_ids=';
+    const BREED_ENDPOINT = 'https://api.thecatapi.com/v1/breeds/search?q=%s';
     
     /**
      * Guzzle client.
@@ -62,19 +62,48 @@ class CatService
      * @return string
      */
 
-    public function byBreedID($breedID)
+    public function byBreed($breed)
     {
         try {
             // We replace %s in our endpoint with the given breed name.
-            $endpoint = self::BREED_ENDPOINT . $breedID;
+            $endpoint = 'https://api.thecatapi.com/v1/breeds/search?q=' . $breed;
 
             $response = json_decode(
                 $this->client->get($endpoint)->getBody()
             );
-            
-            return $response[0]->url;
+            // Log::info($response[0]);
+            // return $response[0]->url;
         } catch (Exception $e) {
-            return "Sorry I couldn\"t get you any photos for $breedID. Please try with a different breed.";
+            return "Sorry I couldn\"t get you any photos for $breed. Please try with a different breed.";
         }
+    }
+
+
+    public function getRandomBreeds() {
+
+        try {
+
+            $request = $this->client->get(self::RANDOM_NAMES);
+            $response = json_decode($request->getBody());
+            $responseLength = count($response);
+
+            $days = range(1, $responseLength - 1);
+            $res = shuffle($days);
+
+                // dd($days);
+            $names = array();
+
+            for ($i = 0; $i < 4; $i++) {
+                $names[] = array(
+                    'id' => $response[$days[$i]]->id,
+                    'name' => $response[$days[$i]]->name
+                );
+            }
+
+            return $names;    
+
+        } catch (Exception $e) {
+            return 'Error' . $e;
+        }      
     }
 }

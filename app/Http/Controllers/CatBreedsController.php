@@ -27,7 +27,7 @@ class CatBreedsController extends Controller
      */
 
     public function start($bot) {
-        $bot->reply("<b>Welcome to Kitty</b>\n\nYou can control me by sending these commands\n\n/random - get random kitty photo\n/b (breed_name) - get a specific kitty breed photo\n\n'Start Conversation' - Let's have a chat 🙂", ['parse_mode' => 'HTML'] );
+        $bot->reply("<b>Welcome to Kitty</b>\n\nYou can control me by sending these commands\n\n/random - get a random kitty photo\n'Start Conversation' - Let's have a chat 🙂", ['parse_mode' => 'HTML'] );
     }
 
     public function random($bot)
@@ -37,10 +37,4 @@ class CatBreedsController extends Controller
         $response = $this->catService->random();
         $bot->reply($response);
     }
-
-    public function byBreedID($bot, $breedID) {
-        $response = $this->catService->byBreedID($breedID);
-        $bot->reply($response);
-    }
-
 }
