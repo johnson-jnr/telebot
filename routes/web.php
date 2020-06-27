@@ -19,7 +19,8 @@ Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 Route::get('/botman/tinker', 'BotManController@tinker');
 
 
-Route::get('/random', 'CatBreedsController@random');
-Route::get('/example', 'CatBreedsController@example');
+// Route::get('/random', 'CatBreedsController@random');
 
-Route::get('/test', 'CatBreedsController@test');
+// Route::get('/example', 'CatBreedsController@example');
+
+// Route::get('/test', 'CatBreedsController@test');

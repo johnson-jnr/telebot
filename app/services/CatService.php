@@ -40,16 +40,8 @@ class CatService
      */
     public function random()
     {
-
-
         try {
-            // Decode the json response.
-
-            // $response = json_decode(
-            //     // Make an API call an return the response body.
-            //     $this->client->get(self::RANDOM_ENDPOINT)
-            // );
-
+            
             $response = json_decode(
                 $this->client->get(self::RANDOM_ENDPOINT)->getBody()
             );
@@ -79,51 +71,10 @@ class CatService
             $response = json_decode(
                 $this->client->get($endpoint)->getBody()
             );
+            
             return $response[0]->url;
         } catch (Exception $e) {
-            return "Sorry I couldn\"t get you any photos from $breed. Please try with a different breed.";
+            return "Sorry I couldn\"t get you any photos for $breedID. Please try with a different breed.";
         }
     }
-
-
-    public function example() {
-        $client = new \GuzzleHttp\Client();
-        $request = $client->get('https://api.thecatapi.com/v1/images/search');
-        $response = $request->getBody();
-
-        dd($response);
-    }
-
-
-    public function getRandomBreeds() {
-
-        try {
-
-            $request = $this->client->get(self::RANDOM_NAMES);
-
-            $response = json_decode($request->getBody());
-            $responseLength = count($response);
-
-            $days = range(1, $responseLength);
-            $res = shuffle($days);
-
-                // dd($days);
-            $names = array();
-
-            for ($i = 0; $i < 4; $i++) {
-                $names[] = array(
-                    'id' => $response[$days[$i]]->id,
-                    'name' => $response[$days[$i]]->name
-                );
-            }
-
-            return $names;    
-
-        } catch (Exception $e) {
-            return 'Error' . $e;
-        }
-            
-
-    }
-
 }

@@ -77,18 +77,7 @@ class CatConversation extends Conversation
         return $this->ask($question, function (Answer $answer) {
             // Did the user click on an option or entered a text?
             if ($answer->isInteractiveMessageReply()) {
-                // We compare the answer to our pre-defined ones and respond accordingly.
-                // switch($answer->getValue()) {
-                //     case 'random':
-                //     $this->say((new App\Services\CatService)->random());
-                //     break;
-                //     case 'breed':
-                //     $this->displayBreedName();
-                //     break;
-                //     case 'cancel':
-                //     $this->say('Hope to see you around again');
-                // }
-
+                
                 if ($answer->getValue() == 'cancel') {
                     $this->say('Hope to see you around again');
                 } else {
