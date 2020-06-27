@@ -43,7 +43,7 @@ class CatBreedsController extends Controller
 
         $user = $bot->getUser();
         error_log($user->getId());
-
+        error_log('after');
         
         // $botman = resolve("botman");
     }
