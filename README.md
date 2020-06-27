@@ -7,7 +7,7 @@ kittens displayed anytime non-stop. Try on the web - [link](https://web.telegram
 
 ## Contributing
 
-I am open for new features and improvements, but please talk to me first before working on a pull request.
+I am open for new features and improvements.
 
 ## Acknowledgements
 
