@@ -38,11 +38,11 @@ class CatBreedsController extends Controller
         // $this->photos->random() is basically the photo URL returned from the service.
         // $bot->reply is what we will use to send a message back to the user.
 
-        $response = $this->catService->random();
-        $bot->reply($response);
+        // $response = $this->catService->random();
+        // $bot->reply($response);
 
-        // $user = $bot->getUser();
-        // Log::info($user->getId());
+        $user = $bot->getUser();
+        Log::info($user->getId());
 
         
         // $botman = resolve("botman");
