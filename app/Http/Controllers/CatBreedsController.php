@@ -37,4 +37,5 @@ class CatBreedsController extends Controller
         $response = $this->catService->random();
         $bot->reply($response);
     }
+
 }

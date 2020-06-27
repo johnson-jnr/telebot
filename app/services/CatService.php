@@ -14,7 +14,7 @@ class CatService
     // The endpoint we will be getting a random image from.
     const RANDOM_ENDPOINT = 'https://api.thecatapi.com/v1/images/search';
     const RANDOM_NAMES = 'https://api.thecatapi.com/v1/breeds';
-    const BREED_ENDPOINT = 'https://api.thecatapi.com/v1/breeds/search?q=%s';
+    const BREED_ENDPOINT = 'https://api.thecatapi.com/v1/images/search?breed_ids=%s';
     
     /**
      * Guzzle client.
@@ -62,17 +62,15 @@ class CatService
      * @return string
      */
 
-    public function byBreed($breed)
+    public function byBreedID($breed)
     {
         try {
             // We replace %s in our endpoint with the given breed name.
-            $endpoint = 'https://api.thecatapi.com/v1/breeds/search?q=' . $breed;
-
+            $endpoint = sprintf(self::BREED_ENDPOINT, $breed);
             $response = json_decode(
                 $this->client->get($endpoint)->getBody()
             );
-            // Log::info($response[0]);
-            // return $response[0]->url;
+            return $response[0]->url;
         } catch (Exception $e) {
             return "Sorry I couldn\"t get you any photos for $breed. Please try with a different breed.";
         }
