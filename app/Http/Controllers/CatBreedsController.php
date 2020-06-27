@@ -42,7 +42,7 @@ class CatBreedsController extends Controller
         // $bot->reply($response);
 
         $user = $bot->getUser();
-        Log::info($user->getId());
+        error_log($user->getId());
 
         
         // $botman = resolve("botman");
