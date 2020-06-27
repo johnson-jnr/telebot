@@ -2,7 +2,7 @@
 
 ## About KittyBot
 
-[Kitty Bot Chatbot](http://t.me/laraplaybot) displays random cats photos to you. Get to know cat breeds and see cute
+[Kitty Chatbot](http://t.me/laraplaybot) displays random cats photos to you. Get to know cat breeds and see cute
 cats displayed anytime non stop. 
 
 ## Contributing
