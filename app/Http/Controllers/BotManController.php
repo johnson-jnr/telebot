@@ -43,7 +43,7 @@ class BotManController extends Controller
     public function test() {
 
         $botman = app('botman');
-        $res = $botman->say('Message', '1170467087', Telegram::class);
+        $res = $botman->say('Message', '1170467087', \BotMan\Drivers\Telegram\TelegramDriver::class);
         dd($res);
     }
 }
