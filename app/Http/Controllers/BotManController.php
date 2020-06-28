@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use BotMan\BotMan\BotMan;
 use Illuminate\Http\Request;
 use App\Conversations\ExampleConversation;
+use BotMan\Drivers\Telegram\TelegramDriver;
+use BotMan\BotMan\Messages\Attachments\Image;
+use BotMan\BotMan\Messages\Outgoing\OutgoingMessage;
+use Botman\Drivers\Web\WebDriver;
 
 
 class BotManController extends Controller
@@ -34,5 +38,12 @@ class BotManController extends Controller
     public function startConversation(BotMan $bot)
     {
         $bot->startConversation(new ExampleConversation());
+    }
+
+    public function test() {
+
+        $botman = app('botman');
+        $res = $botman->say('Message', '1593306850915', WebDriver::class);
+        dd($res);
     }
 }

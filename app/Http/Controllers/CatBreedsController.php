@@ -41,8 +41,8 @@ class CatBreedsController extends Controller
         $response = $this->catService->random();
         $bot->reply($response);
 
-        $user = $bot->getUser();
-        error_log($user->getId());
+        // $user = $bot->getUser();
+        error_log(print_r($bot->getDriver(), true));
         error_log('after');
         
         // $botman = resolve("botman");
