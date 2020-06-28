@@ -10,8 +10,7 @@ class ReportController extends Controller
 
 
     	$user_id = $bot->getUser()->getId();
-    	error_log($user_id);
-        error_log('after');
+    	
 
         $bot->reply('Thanks for being taking the step to be a voice for the people');
     }
