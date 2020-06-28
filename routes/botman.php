@@ -8,12 +8,13 @@ $botman = resolve('botman');
 // });
 
 
-// $botman->hears('/name', function ($bot) {
-//     $bot->reply('Johnson Towoju');
-// });
+$botman->hears('/name', function ($bot) {
+    $bot->reply('Johnson Towoju');
+});
 
 
 $botman->hears('/start', 'App\Http\Controllers\CatBreedsController@start');
+$botman->hears('/random', 'App\Http\Controllers\CatBreedsController@random');
 
 
 $botman->hears('/subscribe', 'App\Http\Controllers\ReportController@subscribe');
